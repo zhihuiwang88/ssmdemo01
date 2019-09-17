@@ -1,0 +1,65 @@
+
+
+
+1)访问路径
+http://localhost:8083/ssmdemo/
+
+2)使用技术框架
+spring + springMVC + mybatis + tomcat + maven + layui
+
+3)Tomcat启动war即可
+ssmdemo.war
+
+4)用户名和年龄字段说明
+没有对部分字段做校验处理
+
+5)项目模块说明
+项目只有搜索、编辑、删除(单删)、新增功能。
+
+6)今日头条
+https://www.toutiao.com/c/user/6207413939/#mid=6221726777
+
+7)实体类
+
+CREATE TABLE `person` (
+   `id` int(255) NOT NULL AUTO_INCREMENT,
+   `name` varchar(255) DEFAULT NULL,
+   `age` int(255) DEFAULT NULL,
+   `city` varchar(255) DEFAULT NULL,
+   PRIMARY KEY (`id`)
+ ) ENGINE=InnoDB AUTO_INCREMENT=277 DEFAULT CHARSET=utf8
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

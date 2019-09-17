@@ -1,0 +1,86 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper
+  PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+  "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+<mapper namespace="com.nengliang.web.dao.PersonMapper">
+
+	<select id="showPageLimit" resultType="com.nengliang.web.entity.Person">
+		select id,name,age,city from person order  by  id desc limit #{pageNum},#{pageSize}
+	</select>
+
+	<select id="findParam" resultType="com.nengliang.web.entity.Person">
+		select id,name,age,city from person  order by id desc
+	</select>
+
+	<select id="selectByName" resultType="com.nengliang.web.entity.Person">
+		select id,name,age,city from person 
+		<where>
+           name like '%${perName}%'  order  by  id  desc limit #{page},#{limit}
+		</where>
+	</select> 
+
+<select id="findById" parameterType="Integer">
+   select  id  from  person  where  id=#{id}
+</select>
+
+	 <select id="findByName" resultType="com.nengliang.web.entity.Person" >
+		select name from person where name=#{persoName}
+	</select> 
+	
+      <select id="selectName" resultType="com.nengliang.web.entity.Person">
+		select name from person 
+		<where>
+		
+		name  like '%${pername}%' order by id desc
+		
+		</where>
+	</select>
+
+ <select id="selectPerName"  resultType="com.nengliang.web.entity.Person">
+    select  id,name,age,city from person  where name  like '%${pername}%'  limit  #{perpage},#{perlimit} 
+ </select>
+
+
+	<insert id="insertParam" parameterType="com.nengliang.web.entity.Person">
+		insert into person(name,age,city) values(#{name},#{age},#{city})
+	</insert>
+
+	<insert id="insertAllsParam"  parameterType="com.nengliang.web.entity.Person">
+		insert into person(name,age,city) values(#{name},#{age},#{city})
+	</insert>
+
+	<update id="updatePerson" parameterType="com.nengliang.web.entity.Person">
+	update person
+	<set>
+		<if test="name != null and name != ''">
+			name=#{name},
+		</if>
+		<if test="age != null and age != ''">
+			age=#{age},
+		</if>
+		<if test="city != null and city != ''">
+			city=#{city}
+		</if>
+	</set>
+	where id=#{id}
+</update>
+	
+	<delete id="deleteById" parameterType="int">
+	  delete from person
+	  <where>
+			id=#{id}
+	  </where>
+    </delete>
+	
+	
+	<delete id="deleteId" parameterType="int">
+	delete from person  where  id=#{id}
+	</delete>
+	
+	<update id="updataParam"  parameterType="com.nengliang.web.entity.Person">
+		update person set name=#{name},age=#{age},city=#{city} where id=#{id}
+	</update>
+	
+
+</mapper>
